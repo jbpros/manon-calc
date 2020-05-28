@@ -93,6 +93,15 @@ describe('calculatrice', () => {
     expect(resultat).to.equal(-1)
   })
 
+  it('peut mettre la mémoire à zéro', () => {
+    x(9)
+    x('-')
+    x(5)
+    x(1)
+    const resultat = x('C')
+    expect(resultat).to.equal(0)
+  })
+
   it('peut être remise à zéro', () => {
     x(9)
     x('+')
@@ -132,9 +141,10 @@ function x(n: number | string) {
     return memoire
   } else if (n === 'AC') {
     operandeGauche = 0
-    memoire = 0
     operateur = '+'
-    return 0
+    return (memoire = 0)
+  } else if (n === 'C') {
+    return (memoire = 0)
   } else {
     memoire = memoire * 10 + parseInt(`${n}`)
     return memoire
