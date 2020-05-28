@@ -28,6 +28,12 @@ describe('calculatrice', () => {
     expect(resultat).to.equal(1)
   })
 
+  it('retourne le nombre courant après *', () => {
+    x(2)
+    const resultat = x('*')
+    expect(resultat).to.equal(2)
+  })
+
   it('retourne le chiffre tapé après +', () => {
     x(1)
     x(5)
@@ -40,6 +46,14 @@ describe('calculatrice', () => {
     x(1)
     x(5)
     x('-')
+    const resultat = x(9)
+    expect(resultat).to.equal(9)
+  })
+
+  it('retourne le chiffre tapé après *', () => {
+    x(1)
+    x(5)
+    x('*')
     const resultat = x(9)
     expect(resultat).to.equal(9)
   })
@@ -60,6 +74,15 @@ describe('calculatrice', () => {
     x(2)
     const resultat = x('=')
     expect(resultat).to.equal(13)
+  })
+
+  it('retourne le résultat de la multiplication après =', () => {
+    x(1)
+    x(5)
+    x('*')
+    x(2)
+    const resultat = x('=')
+    expect(resultat).to.equal(30)
   })
 
   it('enchaîne les additions', () => {
@@ -93,6 +116,40 @@ describe('calculatrice', () => {
     expect(resultat).to.equal(-1)
   })
 
+  it('enchaîne des opérations après =', () => {
+    x(5)
+    x('-')
+    x('3')
+    x('=')
+    x('*')
+    x(2)
+    expect(x('=')).to.equal(4)
+  })
+
+  it('peut effectuer une série de toutes les opérations', () => {
+    x(1)
+    x(3)
+    x('+')
+    x('9')
+    x(0)
+    x('-')
+    x('5')
+    x('=')
+    x('*')
+    x(2)
+    expect(x('=')).to.equal(196)
+  })
+
+  xit("peut changer d'opérateur en cours de route", () => {
+    x(2)
+    x('*')
+    x(2)
+    expect(x('*')).to.equal(4)
+    expect(x('-')).to.equal(4)
+    x(1)
+    expect(x('=')).to.equal(3)
+  })
+
   it('peut mettre la mémoire à zéro', () => {
     x(9)
     x('-')
@@ -118,19 +175,21 @@ describe('calculatrice', () => {
 
 let memoire = 0
 let operandeGauche = 0
-let operateur: '+' | '-' = '+'
+let operateur: '+' | '-' | '*' = '+'
 
 function appliqueOperation(): number {
   if (operateur === '+') {
     return operandeGauche + memoire
   } else if (operateur === '-') {
     return operandeGauche - memoire
+  } else if (operateur === '*') {
+    return operandeGauche * memoire
   }
   throw new Error('Opérateur inconnu')
 }
 
 function x(n: number | string) {
-  if (n === '+' || n === '-') {
+  if (n === '+' || n === '-' || n === '*') {
     operandeGauche = appliqueOperation()
     memoire = 0
     operateur = n
@@ -138,6 +197,7 @@ function x(n: number | string) {
   } else if (n === '=') {
     memoire = appliqueOperation()
     operandeGauche = 0
+    operateur = '+'
     return memoire
   } else if (n === 'AC') {
     operandeGauche = 0
