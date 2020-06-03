@@ -1,0 +1,15 @@
+#ecran {
+  background: pink;
+  width: 15em;
+  padding: 10px;
+  border: 1px solid black;
+  text-align: right;
+  font-size: 2.2em;
+  font-family: monospace;
+  border-radius: 6px;
+}
+
+.boitier {
+  background: #23d3e0;
+  color: #6a0043;
+}
