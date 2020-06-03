@@ -1,15 +1,27 @@
-#ecran {
-  background: pink;
-  width: 15em;
-  padding: 10px;
-  border: 1px solid black;
-  text-align: right;
-  font-size: 2.2em;
-  font-family: monospace;
-  border-radius: 6px;
+body {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
 .boitier {
   background: #23d3e0;
+  border-radius: 12px;
+  border: blue 1px solid;
   color: #6a0043;
+  padding: 25px;
+  width: 20em;
+}
+
+#ecran {
+  background: pink;
+  border-radius: 6px;
+  border: 1px solid black;
+  font-family: monospace;
+  font-size: 2.2em;
+  padding: 10px;
+  text-align: right;
 }
