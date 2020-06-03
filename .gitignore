@@ -4,3 +4,5 @@ node_modules
 /out
 /tmp
 yarn-error.log
+.cache
+/dist
