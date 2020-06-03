@@ -8,16 +8,17 @@ body {
 }
 
 .boitier {
-  background: #23d3e0;
+  background: #696bdd;
   border-radius: 12px;
-  border: blue 1px solid;
-  color: #6a0043;
+  border: #000 1px solid;
+  box-shadow: rgba(0, 0, 0, .5) 10px 10px 10px;
+  color: #1f1297;
   padding: 25px;
   width: 20em;
 }
 
 #ecran {
-  background: pink;
+  background: rgb(146, 218, 208);
   border-radius: 6px;
   border: 1px solid black;
   font-family: monospace;
