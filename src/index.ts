@@ -30,8 +30,9 @@ export function x(n: number | string) {
     return (memoire = 0)
   } else if (n === 'C') {
     return (memoire = 0)
-  } else {
+  } else if (/^[0-9]$/.test(n.toString())) {
     memoire = memoire * 10 + parseInt(`${n}`)
     return memoire
   }
+  return memoire
 }

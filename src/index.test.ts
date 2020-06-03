@@ -173,4 +173,10 @@ describe('calculatrice', () => {
     x(2)
     expect(x('=')).to.equal(3)
   })
+
+  it('ignore les entrées inconnues', () => {
+    x(9)
+    expect(x('m')).to.equal(9)
+    expect(x(6)).to.equal(96)
+  })
 })
