@@ -36,6 +36,12 @@ describe('calculatrice', () => {
     expect(resultat).to.equal(2)
   })
 
+  it('retourne le nombre courant après /', () => {
+    x(2)
+    const resultat = x('/')
+    expect(resultat).to.equal(2)
+  })
+
   it('retourne le chiffre tapé après +', () => {
     x(1)
     x(5)
@@ -58,6 +64,14 @@ describe('calculatrice', () => {
     x('*')
     const resultat = x(9)
     expect(resultat).to.equal(9)
+  })
+
+  it('retourne le chiffre tapé après /', () => {
+    x(1)
+    x(4)
+    x('/')
+    const resultat = x(7)
+    expect(resultat).to.equal(7)
   })
 
   it("retourne le résultat de l'addition après =", () => {
@@ -85,6 +99,15 @@ describe('calculatrice', () => {
     x(2)
     const resultat = x('=')
     expect(resultat).to.equal(30)
+  })
+
+  it('retourne le résultat de la division après =', () => {
+    x(1)
+    x(0)
+    x('/')
+    x(2)
+    const resultat = x('=')
+    expect(resultat).to.equal(5)
   })
 
   it('enchaîne les additions', () => {

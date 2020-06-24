@@ -1,6 +1,6 @@
 let memoire = 0
 let operandeGauche = 0
-let operateur: '+' | '-' | '*' = '+'
+let operateur: '+' | '-' | '*' | '/' = '+'
 
 function appliqueOperation(): number {
   if (operateur === '+') {
@@ -9,12 +9,14 @@ function appliqueOperation(): number {
     return operandeGauche - memoire
   } else if (operateur === '*') {
     return operandeGauche * memoire
+  } else if (operateur === '/') {
+    return operandeGauche / memoire
   }
   throw new Error('Opérateur inconnu')
 }
 
 export function x(n: number | string) {
-  if (n === '+' || n === '-' || n === '*') {
+  if (n === '+' || n === '-' || n === '*' || n === '/') {
     operandeGauche = appliqueOperation()
     memoire = 0
     operateur = n
