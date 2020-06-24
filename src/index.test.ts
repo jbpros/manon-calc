@@ -110,6 +110,15 @@ describe('calculatrice', () => {
     expect(resultat).to.equal(5)
   })
 
+  it('division par 0', () => {
+    x(1)
+    x(0)
+    x('/')
+    x(0)
+    const resultat = x('=')
+    expect(resultat).to.equal(Infinity)
+  })
+
   it('enchaîne les additions', () => {
     x(1)
     x(5)
