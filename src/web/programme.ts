@@ -6,8 +6,9 @@ const ajouterEntrée = (entrée: string) => {
   ecran.innerText = valeurALécran.toString()
 }
 
-window.onkeypress = (evenement) => {
+window.onkeypress = (evenement: KeyboardEvent) => {
   ajouterEntrée(evenement.key)
+  evenement.preventDefault()
 }
 
 document.querySelectorAll('[data-entrée-calc]').forEach((button) => {
