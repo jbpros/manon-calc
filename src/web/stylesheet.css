@@ -26,3 +26,28 @@ body {
   padding: 10px;
   text-align: right;
 }
+
+.buttons {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.buttons button {
+  height: 3em;
+  flex-grow: 1;
+  flex-basis: 25%;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 2em;
+  font-family: monospace;
+}
+
+.buttons button:active {
+  background: rgb(160, 160, 160);
+}
+
+.buttons button.large {
+  flex-basis: 50%;
+}
