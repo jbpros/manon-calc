@@ -23,9 +23,9 @@ body {
   border: 1px solid black;
   font-family: monospace;
   font-size: 4em;
+  margin-bottom: .5em;
   padding: 10px;
   text-align: right;
-  margin-bottom: .5em;
 }
 
 .buttons {
@@ -35,14 +35,14 @@ body {
 }
 
 .buttons button {
-  height: 2.7em;
-  flex-grow: 1;
-  flex-basis: 25%;
-  border: 1px solid black;
   border-radius: 4px;
+  border: 1px solid black;
   box-sizing: border-box;
-  font-size: 2em;
+  flex-basis: 25%;
+  flex-grow: 1;
   font-family: monospace;
+  font-size: 2em;
+  height: 2.7em;
 }
 
 .buttons button:active {
